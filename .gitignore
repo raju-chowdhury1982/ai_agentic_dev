@@ -8,4 +8,11 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Sensitive files
+keys.txt
+config.py
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
 config.py
