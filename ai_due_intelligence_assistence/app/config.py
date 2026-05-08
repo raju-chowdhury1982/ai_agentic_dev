@@ -1,5 +1,6 @@
-from dotenv import load_dotenv, find_dotenv
 import os
+
+from dotenv import find_dotenv, load_dotenv
 from pydantic import BaseModel
 
 # reading .env file
@@ -12,11 +13,13 @@ load_dotenv(find_dotenv())
 
 # print(f"\nAOAI Key: {aoai_key}\nModel: {model}\nEndpoint: {endpoint}\nAPI Version: {api_version}")
 
+
 class Settings(BaseModel):
     aoai_key: str
     model: str
     endpoint: str
     api_version: str
+
 
 def get_settings() -> Settings:
     aoai_key = os.getenv("AZ_AOAI_KEY")
@@ -33,11 +36,9 @@ def get_settings() -> Settings:
     if not api_version:
         raise ValueError("API Version is not found")
     return Settings(
-        aoai_key=aoai_key, 
-        model=model, 
-        endpoint=endpoint, 
-        api_version=api_version
-        )
+        aoai_key=aoai_key, model=model, endpoint=endpoint, api_version=api_version
+    )
+
 
 # if __name__ == "__main__":
 #     settings = get_settings()

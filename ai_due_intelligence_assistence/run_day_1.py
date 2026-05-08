@@ -1,5 +1,6 @@
-from app.chains import analyze_business_info
 from rich.console import Console
+
+from app.chains import analyze_business_info
 
 console = Console()
 
@@ -19,6 +20,5 @@ reports are prepared weekly by two employees using manual data collection.
 if __name__ == "__main__":
     console.rule("[bold red]AI Business Due Diligence Assistant - Day 1[/bold red]")
     console.rule("[bold blue]Business Due Diligence Analysis[/bold blue]")
-    result = analyze_business_info(sample_business_info)    # type: ignore
+    result = analyze_business_info(sample_business_info)  # type: ignore
     console.print(result)
-    
