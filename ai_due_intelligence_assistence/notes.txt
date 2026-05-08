@@ -1,0 +1,21 @@
+
+packages used:
+uv init
+uv add package_name
+===========
+langchain
+langchain-openai
+python-dotenv
+pydantic
+rich
+black
+isort
+
+
+building order flow:
+after problem definition analysis, define the folders structure then building files in order as follows:
+1. .evn
+2. config.py
+3. llm.py
+4. prompts.py
+5. chains.py

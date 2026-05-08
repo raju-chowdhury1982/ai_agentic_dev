@@ -1,0 +1,22 @@
+TODO: 08/May/2026
+Today’s reading limit - Maximum reading: 90 minutes only.
+Read only:
+- O’Reilly: LLM basics + prompting + why LangChain matters
+- Packt: Preface + Chapter 1 overview + Chapter 2 overview
+***
+1. Screenshot/output of run_day1.py
+2. Project folder structure - done
+3. Any error faced
+4. Your understanding of:
+   - ChatOpenAI
+   - ChatPromptTemplate
+   - chain = prompt | model
+   - invoke()
+5. One improvement idea for Day 2:
+1. Code → Break → Fix → THEN read to understand WHY
+2. during codig always check documentation for recent method call definition. Books = concepts, Docs = truth, Code = reality
+3. I will not write a single line of code until I can draw the full mental path — including every failure path on paper.
+3-1. Design → Build → Break → Fix → Refactor
+
+
+***
