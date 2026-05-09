@@ -1,3 +1,4 @@
+# call sign: uv run run_day_1.py
 from rich.console import Console
 
 from app.chains import analyze_business_info

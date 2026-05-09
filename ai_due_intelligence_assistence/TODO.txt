@@ -20,3 +20,39 @@ Read only:
 
 
 ***
+
+TODO: 09/May/2026
+📗 Learning LangChain (MAX 2 HOURS)
+Read only:
+- Prompting behavior
+- Why LLM outputs are unreliable
+📘 Packt Book
+Read only:
+- Prompt templates
+- Chains + parsing idea
+
+Deliverables
+1. Working structured JSON output
+2. At least 3 failure cases
+3. Retry working proof
+4. Raw vs parsed output comparison
+5. Best prompt version (A/B/C)
+6. One insight about LLM behavior
+
+What You’ll Realize Today - If done properly:
+- LLMs are NOT deterministic
+- Prompt ≠ guarantee
+- Parsing will break
+- Retry is mandatory
+- Observability is non-negotiable
+
+
+Discover
+By running these, you will see:
+1. LLM is NOT reliable - Even with strict prompt → breaks
+2. JSON parsing WILL fail - Especially:
+quotes
+long input - weird formatting
+3. Prompt injection is real - Your system can be hijacked easily
+4. Retry is not optional - It becomes mandatory
+***

@@ -19,3 +19,9 @@ after problem definition analysis, define the folders structure then building fi
 3. llm.py
 4. prompts.py
 5. chains.py
+
+building flow: day 2
+1. define structured o/p json schema using pydantic in schema.py
+2. incorporate structured o/p with chain by .with_structured_output() method in chain.py
+3. modify propmt to follow CoT in prompt.py
+4. incorporate input validation logic before llm call to response user query in run_day_2.py
