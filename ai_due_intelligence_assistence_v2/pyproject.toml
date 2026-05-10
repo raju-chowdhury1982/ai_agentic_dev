@@ -1,0 +1,14 @@
+[project]
+name = "ai-due-intelligence-assistence-v2"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "black>=26.3.1",
+    "dotenv>=0.9.9",
+    "isort>=8.0.1",
+    "langchain>=1.2.18",
+    "langchain-openai>=1.2.1",
+    "rich>=15.0.0",
+]
