@@ -1,4 +1,4 @@
-from typing import List, Literal
+from typing import List, Literal, Optional
 
 from pydantic import BaseModel
 
@@ -7,13 +7,15 @@ class Risk(BaseModel):
     """Structured output schema for individual risk items."""
 
     risk_description: str
-    is_inferred: bool
-    source_reference: str
-    risk_category: Literal["operational", "legal", "financial", "market"]
+    risk_source_fact: str
+    risk_reasoning: str
+    source_reference: Optional[str] = None
+    risk_category: Literal["financial", "operational", "legal", "market", "strategic"]
     risk_level: Literal["low", "medium", "high"]
+    is_inferred: bool
 
 
 class RiskAssessment(BaseModel):
     """Structured output schema for risk assessment results."""
 
-    risks: List[Risk]
+    risk: List[Risk]
