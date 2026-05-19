@@ -12,7 +12,7 @@ class Risk(BaseModel):
     source_reference: Optional[str] = None
     risk_category: Literal["financial", "operational", "legal", "market", "strategic"]
     risk_level: Literal["low", "medium", "high"]
-    is_inferred: bool
+    risk_is_inferred: bool
 
 
 class RiskAssessment(BaseModel):

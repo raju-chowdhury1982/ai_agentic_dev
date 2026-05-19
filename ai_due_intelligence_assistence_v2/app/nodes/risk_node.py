@@ -20,7 +20,7 @@ def risk_assessment_node(state: PipelineState) -> PipelineState:
     structured_chain = risk_analysis_prompt | structured_chat_model  # type: ignore
 
     # Generate risk assessment using the defined prompt and the business analysis from the state
-    response = structured_chain.invoke(
+    response = structured_chain.invoke(  # type: ignore
         {  # type: ignore
             "business_analysis": state.business_analysis.model_dump(),
             "validated_input": state.validated_input,

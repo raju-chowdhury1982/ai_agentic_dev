@@ -3,6 +3,7 @@ from typing import List, Literal, Optional
 from pydantic import BaseModel, Field
 
 from app.schemas.business_schema import BusinessAnalysis
+from app.schemas.investment_schema import InvestmentDecision  # type: ignore
 from app.schemas.risk_schema import RiskAssessment  # type: ignore
 
 
@@ -20,4 +21,5 @@ class PipelineState(BaseModel):
         Literal["invest", "do_not_invest", "further_analysis_needed"]
     ] = None
     final_summary: Optional[str] = None
+    investment_decision: Optional[InvestmentDecision] = None
     errors: List[str] = []
