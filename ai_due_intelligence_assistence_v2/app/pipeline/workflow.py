@@ -1,7 +1,7 @@
 from langchain_core.runnables import RunnableLambda
 
-from app.nodes.business_node import (analyze_with_retry,  # type: ignore
-                                     business_analysis_node)
+from app.nodes.business_node import analyze_with_retry  # type: ignore
+from app.nodes.business_node import business_analysis_node
 from app.nodes.investment_node import investment_node
 from app.nodes.risk_node import risk_assessment_node
 # from app.nodes.summary_node import summary_node
