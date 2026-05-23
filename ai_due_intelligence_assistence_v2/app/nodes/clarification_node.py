@@ -19,7 +19,7 @@ def clarification_node(state: PipelineState) -> PipelineState:
 
     clarification_chain = clarification_prompt | structured_llm  # type: ignore
 
-    response = clarification_chain.invoke(
+    response = clarification_chain.invoke(  # type: ignore
         {  # type: ignore
             "business_analysis": state.business_analysis.model_dump(),  # type: ignore
             "risk_assessment": state.risk_assessment.model_dump(),  # type: ignore

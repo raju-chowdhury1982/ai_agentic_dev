@@ -41,3 +41,24 @@ I must resist myself from over-engineering too early:
 * adding memory
 * adding RAG
 * adding LangGraph prematurely
+
+
+
+    * failure flow
+    * retry flow
+    * routing flow
+    * clarification flow
+
+
+
+3. Write 5 biggest lessons learned so far
+
+Especially:
+
+* threshold gaming
+* state duplication pain
+* downstream reasoning drift
+* confidence instability
+* orchestration separation
+
+That reflection will compound your learning speed massively.
