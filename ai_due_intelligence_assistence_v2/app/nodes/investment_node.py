@@ -2,8 +2,10 @@ from app.models.llm import get_model
 from app.prompts.investment_prompt import investment_prompt
 from app.schemas.investment_schema import InvestmentDecision
 from app.schemas.pipeline_state import PipelineState
+from app.observability.timer import trace_execution_time
 
 
+@trace_execution_time("Investment Node")
 def investment_node(state: PipelineState) -> PipelineState:
     if state.errors:
         return state

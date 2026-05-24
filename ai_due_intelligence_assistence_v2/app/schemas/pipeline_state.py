@@ -9,6 +9,7 @@ from app.schemas.investment_schema import InvestmentDecision  # type: ignore
 from app.schemas.risk_schema import RiskAssessment  # type: ignore
 
 
+
 class PipelineState(BaseModel):
     """Structured output schema for the overall pipeline state."""
 
@@ -30,5 +31,6 @@ class PipelineState(BaseModel):
     current_stage: Optional[str] = None
     requires_clarification: bool = False
     errors: List[str] = []
-
+    # --- TRACE ---
+    trace_id: Optional[str] = None
     # final_summary: Optional[str] = None

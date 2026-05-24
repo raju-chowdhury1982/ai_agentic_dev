@@ -2,8 +2,10 @@ from app.models.llm import get_model
 from app.prompts.clarification_prompt import clarification_prompt
 from app.schemas.clarification_schema import ClarificationQuestions
 from app.schemas.pipeline_state import PipelineState
+from app.observability.timer import trace_execution_time
 
 
+@trace_execution_time("Clarification Node")
 def clarification_node(state: PipelineState) -> PipelineState:
     """Node to determine if clarification is needed and generate specific questions."""
     if state.errors:

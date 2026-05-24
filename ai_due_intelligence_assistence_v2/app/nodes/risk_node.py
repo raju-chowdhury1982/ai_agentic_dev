@@ -2,10 +2,11 @@ from app.models.llm import get_model
 from app.prompts.risk_prompt import risk_analysis_prompt
 from app.schemas.pipeline_state import PipelineState
 from app.schemas.risk_schema import RiskAssessment
-
+from app.observability.timer import trace_execution_time
 # risk node required to consume both validated_input: raw business facts and business_analysis: compressed interpretation
 
 
+@trace_execution_time("Risk Assessment Node")
 def risk_assessment_node(state: PipelineState) -> PipelineState:
     """Node function to perform risk assessment based on business analysis."""
     if state.errors:

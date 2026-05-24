@@ -6,3 +6,5 @@
 
 # Ignore VS Code workspace settings
 .vscode/
+*.docx
+*.txt

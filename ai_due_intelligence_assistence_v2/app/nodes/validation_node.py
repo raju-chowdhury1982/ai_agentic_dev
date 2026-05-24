@@ -1,6 +1,10 @@
 from app.schemas.pipeline_state import PipelineState
 
+from app.observability.timer import trace_execution_time
 
+
+
+@trace_execution_time("Input Validation Node")
 def validate_input_node(state: PipelineState) -> PipelineState:
     text = state.raw_input.strip()
 

@@ -5,6 +5,7 @@ from app.nodes.clarification_node import clarification_node  # type: ignore
 from app.pipeline.router import should_route_to_clarification  # type: ignore
 from app.pipeline.workflow import workflow_pipeline  # type: ignore
 from app.schemas.pipeline_state import PipelineState
+from app.observability.tracer import generate_trace_id
 
 # --- version 2.0 ---
 
@@ -40,7 +41,7 @@ cash flow in Excel.
 
 
 def main() -> PipelineState:
-    initial_state = PipelineState(raw_input=sample_input)
+    initial_state = PipelineState(raw_input=sample_input, trace_id=generate_trace_id())
     final_state = execute_pipeline(initial_state)  # type: ignore
     return final_state
 
