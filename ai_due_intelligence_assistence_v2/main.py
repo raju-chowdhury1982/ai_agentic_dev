@@ -2,10 +2,10 @@ from rich import print
 
 from app.execution.executor import execute_pipeline
 from app.nodes.clarification_node import clarification_node  # type: ignore
+from app.observability.tracer import generate_trace_id
 from app.pipeline.router import should_route_to_clarification  # type: ignore
 from app.pipeline.workflow import workflow_pipeline  # type: ignore
 from app.schemas.pipeline_state import PipelineState
-from app.observability.tracer import generate_trace_id
 
 # --- version 2.0 ---
 
@@ -53,5 +53,11 @@ if __name__ == "__main__":
     final_result = main()
 
     print(f"\n\nFinal Pipeline State: {final_result}")
+    if final_result.final_report:
+        print("\nFinal Client Report: ")
+        print(final_result.final_report.model_dump())  # type: ignore
+    else:
+        print("\nPipeline Failed:")
+        print(final_result.errors)
 
     # print(f"\n\nModel Dump: {final_result.model_dump(warnings='none')}")

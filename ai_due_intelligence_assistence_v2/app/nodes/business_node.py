@@ -11,10 +11,10 @@ import json
 
 from app.models.llm import get_model
 from app.nodes.validation_node import validate_input_node  # type: ignore
+from app.observability.timer import trace_execution_time
 from app.prompts.business_prompt import business_analysis_prompt
 from app.schemas.business_schema import BusinessAnalysis
 from app.schemas.pipeline_state import PipelineState
-from app.observability.timer import trace_execution_time
 
 
 @trace_execution_time("Business Analysis Node")

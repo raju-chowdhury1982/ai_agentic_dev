@@ -1,7 +1,5 @@
-from app.schemas.pipeline_state import PipelineState
-
 from app.observability.timer import trace_execution_time
-
+from app.schemas.pipeline_state import PipelineState
 
 
 @trace_execution_time("Input Validation Node")

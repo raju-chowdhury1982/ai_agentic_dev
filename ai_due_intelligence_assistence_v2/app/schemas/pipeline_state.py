@@ -5,14 +5,17 @@ from pydantic import BaseModel, Field  # type: ignore
 from app.schemas.business_schema import BusinessAnalysis
 from app.schemas.clarification_schema import \
     ClarificationQuestions  # type: ignore
+# user facing final state
+from app.schemas.final_report_schema import FinalDecisionReport
 from app.schemas.investment_schema import InvestmentDecision  # type: ignore
 from app.schemas.risk_schema import RiskAssessment  # type: ignore
-
 
 
 class PipelineState(BaseModel):
     """Structured output schema for the overall pipeline state."""
 
+    # --- TRACE ---
+    trace_id: Optional[str] = None
     # --- INPUTS ---
     raw_input: str
     validated_input: Optional[str] = None
@@ -31,6 +34,6 @@ class PipelineState(BaseModel):
     current_stage: Optional[str] = None
     requires_clarification: bool = False
     errors: List[str] = []
-    # --- TRACE ---
-    trace_id: Optional[str] = None
-    # final_summary: Optional[str] = None
+
+    # --- USER-READY OUTPUT LAYER ---
+    final_report: Optional[FinalDecisionReport] = None

@@ -1,5 +1,5 @@
-from app.schemas.pipeline_state import PipelineState
 from app.observability.logger import log_event
+from app.schemas.pipeline_state import PipelineState
 
 
 def should_route_to_clarification(state: PipelineState) -> bool:
@@ -16,7 +16,7 @@ def should_route_to_clarification(state: PipelineState) -> bool:
         log_event(
             trace_id=state.trace_id or "-",
             stage="Router",
-            message="Routing to clarification"
+            message="Routing to clarification",
         )
         return True
 
@@ -30,10 +30,10 @@ def should_route_to_clarification(state: PipelineState) -> bool:
         ]
         if any(item in missing for item in critical_missing):
             log_event(
-            trace_id=state.trace_id or "-",
-            stage="Router",
-            message="Routing to clarification"
-        )
+                trace_id=state.trace_id or "-",
+                stage="Router",
+                message="Routing to clarification",
+            )
             return True
 
     # Explicit recommendation for further analysis should route to clarification
@@ -42,12 +42,12 @@ def should_route_to_clarification(state: PipelineState) -> bool:
         log_event(
             trace_id=state.trace_id or "-",
             stage="Router",
-            message="Routing to clarification"
+            message="Routing to clarification",
         )
         return True
     log_event(
-            trace_id=state.trace_id or "-",
-            stage="Router",
-            message="Workflow Pipeline Completed!!!"
-        )
+        trace_id=state.trace_id or "-",
+        stage="Router",
+        message="Workflow Pipeline Completed!!!",
+    )
     return False

@@ -1,8 +1,8 @@
 from app.models.llm import get_model
+from app.observability.timer import trace_execution_time
 from app.prompts.clarification_prompt import clarification_prompt
 from app.schemas.clarification_schema import ClarificationQuestions
 from app.schemas.pipeline_state import PipelineState
-from app.observability.timer import trace_execution_time
 
 
 @trace_execution_time("Clarification Node")
