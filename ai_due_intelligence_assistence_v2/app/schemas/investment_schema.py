@@ -8,7 +8,9 @@ class InvestmentDecision(BaseModel):
 
     overall_investment_score: int = Field(..., ge=1, le=10)
     overall_confidence_score: float = Field(..., ge=0.0, le=1.0)
-    recommendation: Literal["invest", "further_analysis_needed", "do_not_invest"]
+    recommendation: Literal[
+        "invest", "proceed_with_caution", "further_analysis_needed", "do_not_invest"
+    ]
     decision_reason: str
     key_positive_factors: List[str]
     key_risk_factors: List[str]

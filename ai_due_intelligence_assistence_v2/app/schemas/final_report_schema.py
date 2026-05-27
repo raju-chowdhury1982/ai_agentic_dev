@@ -6,7 +6,9 @@ from pydantic import BaseModel
 class FinalDecisionReport(BaseModel):
     report_title: str
     executive_summary: str
-    recommendations: Literal["invest", "do_not_invest", "further_analysis_needed"]
+    recommendations: Literal[
+        "invest", "proceed_with_caution", "further_analysis_needed", "do_not_invest"
+    ]
     investment_score: int
     confidence_score: float
 

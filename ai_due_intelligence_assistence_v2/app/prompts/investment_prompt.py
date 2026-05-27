@@ -14,8 +14,9 @@ investment_prompt = ChatPromptTemplate.from_messages(  # type: ignore
             RULES:
             - Use only one of below:
                 - invest
-                - do_not_invest
+                - proceed_with_causion
                 - further_analysis_needed
+                - do_not_invest
             - If financial data is missing, recomendation should usually be "further_analysis_needed".
             - DO NOT recommend "invest" unless confidence is high and risks are low.
             - If confidence is below 0.6, recommendation must be "further_analysis_needed".

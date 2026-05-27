@@ -21,7 +21,10 @@ def trace_execution_time(  # type: ignore
             end = time.perf_counter()
             duration = round(end - start, 3)
 
-            log_event(trace_id=trace_id, stage=stage_name, message=f"Execution completed | duration={duration}")  # type: ignore
+            if hasattr(result, "execution_metrics"):  # type: ignore
+                result.execution_metrics[stage_name] = duration  # type: ignore
+
+            log_event(trace_id=trace_id, stage=stage_name, message=f"Execution completed | duration={duration}sec")  # type: ignore
             return result  # type: ignore
 
         return wrapper  # type: ignore

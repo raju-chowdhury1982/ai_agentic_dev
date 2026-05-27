@@ -37,3 +37,6 @@ class PipelineState(BaseModel):
 
     # --- USER-READY OUTPUT LAYER ---
     final_report: Optional[FinalDecisionReport] = None
+
+    # --- EVALUATION METRICS ---
+    execution_metrics: dict[str, float] = Field(default_factory=dict)
