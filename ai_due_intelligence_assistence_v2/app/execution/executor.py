@@ -1,3 +1,4 @@
+from app.decision.decision_engine import decide_recommendation
 from app.execution.failure_handler import mark_pipeline_failed  # type: ignore
 from app.execution.governed_executor import execute_governed_node
 from app.execution.parallel_executor import execute_business_and_risk_parallel
@@ -34,7 +35,6 @@ def execute_pipeline(initial_state: PipelineState) -> PipelineState:
     # if state.errors:  # type: ignore
     #     return mark_pipeline_failed(state, "Validation Failed")  # type: ignore
     # --------------------------------------------------------------------
-
     # # --- Business analysis ---
     # # state = execute_with_retry(business_analysis_node, state)
     # state = execute_governed_node(
@@ -62,15 +62,14 @@ def execute_pipeline(initial_state: PipelineState) -> PipelineState:
 
     # # if state.errors:  # type: ignore
     # #     return mark_pipeline_failed(state, "Risk Assessment node failed")
-
     # --------------------------------------------------------------------
     # parallel business and risk node execution
     state = execute_business_and_risk_parallel(state)
+
     if state.errors:
         return mark_pipeline_failed(state, "Parallel business/risk Execution Failed")
 
     # --- Investment ---
-
     # state = execute_with_retry(investment_node, state)
     state = execute_governed_node(
         node_func=investment_node,
@@ -81,6 +80,9 @@ def execute_pipeline(initial_state: PipelineState) -> PipelineState:
 
     # if state.errors:  # type: ignore
     #     return mark_pipeline_failed(state, "Investment Node failed")  # type: ignore
+    # --- DECISION ENGINE ---
+    if state.investment_decision:
+        state.investment_decision.recommendation = decide_recommendation(state)  # type: ignore
 
     # --- Routing ---
     if should_route_to_clarification(state):  # type: ignore
